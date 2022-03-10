@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://.thymeleaf.org" xmlns:font-size="http://www.w3.org/1999/xhtml">
+
+<head>
+    <!--<meta charset="ISO-8859-1">-->
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div>
+    <h1 align="center"><b>Student Management System</b></h1>
+    <tr>
+        <div align="center">
+            <h3><a th:href="@{'/new'}" class="form-control" style="background-color: lightgreen; color: darkgreen"><i class="fa fa-plus"></i><b>  Add new</b></a></h3>
+        </div>
+    </tr>
+    <table>
+        <tbody>
+        <tr>
+            <div class="col-sm-5" align="center">
+                <div class="panel-body" align="center">
+                    <table class="table">
+                        <thead class="thead-dark">
+                        <tr>
+                            <th style="size: 30px">Student ID</th>
+                            <th style="size: 30px">Student Name</th>
+                            <th style="size: 30px">Birth Date</th>
+                            <th style="size: 30px">Gender</th>
+                            <th style="size: 30px">Note</th>
+                            <th><i class="fas fa-edit" style="font-size:20px;color:lightgray;"></i></th>
+                            <th><i class="fas fa-trash-alt" style="font-size:20px;color:lightgray;"></i></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr  th:each="student : ${students}">
+                            <td th:text="${student.id}"></td>
+                            <td th:text="${student.name}"></td>
+                            <td th:text="${student.birthdate}"></td>
+                            <td th:text="${student.gender}"></td>
+                            <td th:text="${student.note}"></td>
+                            <td>
+                                <a th:href="@{'/edit/' + ${student.id}}"><i class="far fa-edit" style="font-size:18px;color:lightgreen;"></i></a>
+                            </td>
+                            <td>
+                                <a th:href="@{'/delete/' + ${student.id}}"><i class="far fa-trash-alt" style="font-size:18px;color:lightcoral;"></i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Create New Product</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div align="center">
+    <h1 align="center" ,><b>Create New Student</b></h1>
+    <br/>
+    <div class="col-sm-4">
+        <form action="#" th:action="@{/save}" th:object="${student}" method="post">
+
+
+            <div alight="left">
+                <tr>
+                    <label alight="right" class="form-label">Student Name</label>
+                    <td>
+                        <!--<input type="hidden" th:field="*{id}"/>-->
+                        <input type="text" th:field="*{name}" class="form-control" placeholder="Student Name"/>
+                    </td>
+                </tr>
+            </div>
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label">Birth Date</label>
+                    <td><input type="date" th:field="*{birthdate}" class="form-control" placeholder="Birth Date"/></td>
+                </tr>
+            </div>
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label">Gender</label>
+                    <td></td><select th:field="*{gender}" class="form-control">
+                        <option value=0>Male</option>
+                        <option value=1>Female</option>
+                        <option value=2>Others</option>
+                    </select>
+                    </td>
+                </tr>
+            </div>
+
+            <div alight="left">
+                <tr>
+                    <label class="form-label">Note</label>
+                    <td><input class="form-control" placeholder="Note" th:field="*{note}" type="text"/></td>
+                </tr>
+            </div>
+            <br>
+            <tr>
+                <td colspan="10">
+                    <button type="submit" class="form-control" style="background-color: lightgreen; size: 40px"><b>Save</b></button>
+                </td>
+            </tr>
+            </table>
+        </form>
+    </div>
+</div>
+</body>
+</html>
